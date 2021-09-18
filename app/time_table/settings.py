@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     "upload",
     "table",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
