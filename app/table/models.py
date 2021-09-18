@@ -22,7 +22,7 @@ class Plan(models.Model):
                               on_delete=models.CASCADE, db_column="user_id")
   title = models.CharField(max_length=150, blank=False, null=False)
   description = models.TextField(max_length=500, blank=True, null=True)
-  evaluation = models.CharField(help_text="Plan achievement evaluation", max_length=1, choices=EVALUATION)
+  evaluation = models.CharField(help_text="Plan achievement evaluation", max_length=1, choices=EVALUATION, null=True, blank=True)
   start = models.DateTimeField(help_text="The start of the execution period "
                                          "of the plan", blank=False, null=False)
   end = models.DateTimeField(help_text="The end of the execution period of "

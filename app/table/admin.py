@@ -1,3 +1,18 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import User, Plan, TimeTable
+
+
+@admin.register(User)
+class User(admin.ModelAdmin):
+  pass
+
+
+@admin.register(Plan)
+class Entry(admin.ModelAdmin):
+  pass
+
+
+@admin.register(TimeTable)
+class Entry(admin.ModelAdmin):
+  pass
