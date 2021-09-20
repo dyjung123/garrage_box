@@ -10,6 +10,13 @@ class User(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   updated_at = models.DateTimeField(auto_now=True)
 
+  def __repr__(self):
+    # primary key와 username을 표시해서 보기 쉽게 함
+    # ex) 1: Alice
+    return "{}: {}".format(self.pk, self.username)
+
+  __str__ = __repr__  # __str__에도 같은 함수를 적용
+
 
 class Plan(models.Model):
   EVALUATION = (
