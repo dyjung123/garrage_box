@@ -14,17 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
 from django.conf import settings
+from django.conf.urls import url, include
 from django.conf.urls.static import static
 
 from upload.views import image_upload
 from table.urls import router as table_router
 
 urlpatterns = [
-    path("", image_upload, name="upload"),
-    path('admin/', admin.site.urls),
-    path(r'^api/', include(table_router.urls)),
+    url(r'^$', image_upload, name="upload"),
+    url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(table_router.urls)),
 ]
 
 if bool(settings.DEBUG):
