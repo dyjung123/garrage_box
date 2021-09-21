@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^$', image_upload, name="upload"),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(table_router.urls)),
+    url(r'^authapp/', include('authapp.urls')),
 ]
 
 if bool(settings.DEBUG):
