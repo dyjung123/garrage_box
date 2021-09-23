@@ -22,6 +22,7 @@ from upload.views import image_upload
 from table.urls import router as table_router
 
 urlpatterns = [
+    url('', include('social_django.urls')),
     url(r'^$', image_upload, name="upload"),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(table_router.urls)),
