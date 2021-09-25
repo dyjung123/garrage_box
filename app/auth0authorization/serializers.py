@@ -13,8 +13,7 @@ class PlanSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Plan
-        fields = (
-            'id', 'user_id', 'title', 'description', 'evaluation', 'start', 'end', 'created_at', 'updated_at')
+        fields = '__all__'
 
 
 class TimeTableSerializer(serializers.ModelSerializer):
@@ -22,6 +21,5 @@ class TimeTableSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = TimeTable
-        fields = (
-            'id', 'plan_id', 'title', 'memo', 'from_at', 'to_at', 'created_at', 'updated_at')
+        fields = '__all__'
 

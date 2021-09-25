@@ -14,7 +14,7 @@ class Plan(models.Model):
         ('C', 'Not Bad'),
         ('D', 'Failed'),
     )
-    user = models.ForeignKey(settings.API_AUTH_USER_MODEL, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=150, blank=False, null=False)
     description = models.TextField(max_length=500, blank=True, null=True)
     evaluation = models.CharField(help_text="Plan achievement evaluation",
@@ -33,8 +33,7 @@ class Plan(models.Model):
 
 
 class TimeTable(models.Model):
-    user = models.ForeignKey(settings.API_AUTH_USER_MODEL, on_delete=models.CASCADE)
-    plan = models.ForeignKey(Plan, related_name="plan", on_delete=models.CASCADE)
+    plan = models.ForeignKey(Plan, on_delete=models.CASCADE)
     title = models.CharField(max_length=100, blank=False, null=False)
     memo = models.TextField(max_length=500, blank=True, null=True)
     from_at = models.TimeField(help_text="The start time", blank=False,
