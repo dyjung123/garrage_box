@@ -18,13 +18,11 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 
-from upload.views import image_upload
 from authapp.views import logout
 from table.urls import router as table_router
 
 urlpatterns = [
     url('', include('social_django.urls')),
-    url(r'^$', image_upload, name="upload"),
     url(r'^logout/', logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(table_router.urls)),
