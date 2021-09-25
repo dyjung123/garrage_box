@@ -59,7 +59,6 @@ def private_scoped(request):
 
 
 class UserAPI(APIView):
-    @permission_classes([AllowAny])
     def get(self, request):
         queryset = User.objects.all()
         print(queryset)
