@@ -68,6 +68,7 @@ INSTALLED_APPS = [
 
     "table",
     "authapp",
+    "auth0authorization",
     "rest_framework",
     "corsheaders",
     "social_django",
