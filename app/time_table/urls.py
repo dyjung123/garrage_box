@@ -23,6 +23,7 @@ from table.urls import router as table_router
 
 urlpatterns = [
     url('', include('social_django.urls')),
+    url(r'^$', include('auth0authorization.urls')),
     url(r'^logout/', logout, name='logout'),
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(table_router.urls)),
