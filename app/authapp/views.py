@@ -36,3 +36,13 @@ def logout(request):
     client_id = settings.SOCIAL_AUTH_AUTH0_KEY
     return_to = 'http://localhost:8000/authapp'
     return redirect(f'https://{domain}/v2/logout?client_id={client_id}&returnTo={return_to}')
+
+
+def delete_post(request, post_id):
+    # check if post belongs to user
+    post = Post.objects.get(id=post_id)
+    if post.user == request.user:
+        post.delete()
+    # remove it from the database
+    # redirect back to same page
+    return redirect('index')
