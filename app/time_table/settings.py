@@ -13,6 +13,7 @@ import os
 from pathlib import Path
 
 AUTH_USER_MODEL = 'authapp.User'
+API_AUTH_USER_MODEL = 'auth0authorization.User'
 
 # Auth0 settings
 SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
