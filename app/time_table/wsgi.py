@@ -8,9 +8,18 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 """
 
 import os
+import sys
 
-from django.core.wsgi import get_wsgi_application
+from dotenv import load_dotenv
+
+project_folder = os.path.expanduser('~/garrage_box/app')
+load_dotenv(os.path.join(project_folder, '.env'))
+
+path = '/home/dongryun/garrage_box/app'
+if path not in sys.path:
+    sys.path.append(path)
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'time_table.settings')
 
+from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
