@@ -18,16 +18,9 @@ from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 
-from authapp.views import logout
-from table.urls import router as table_router
-
 urlpatterns = [
-    url(r'^social/', include('social_django.urls')),
     url('', include('auth0authorization.urls')),
-    url(r'^logout/', logout, name='logout'),
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(table_router.urls)),
-    url(r'^authapp/', include('authapp.urls')),
 ]
 
 if bool(settings.DEBUG):
