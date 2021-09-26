@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls import url, include
 from django.conf.urls.static import static
+from auth0authorization.urls import router as time_router
 
 urlpatterns = [
-    url('', include('auth0authorization.urls')),
+    # url('', include('auth0authorization.urls')),
+    url(r'^api/', include(time_router.urls)),
     url(r'^admin/', admin.site.urls),
 ]
 

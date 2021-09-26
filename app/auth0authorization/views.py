@@ -1,12 +1,14 @@
+import jwt
+
 from functools import wraps
 from django.http import JsonResponse
+from rest_framework import viewsets, filters
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
-from rest_framework.views import APIView
-from rest_framework.response import Response
-import jwt
-from .serializers import UserSerializer, PlanSerializer, TimeTableSerializer
-from .models import User, Plan, TimeTable
+# from .serializers import UserSerializer, PlanSerializer, TimeTableSerializer
+from .serializers import PlanSerializer, TimeTableSerializer
+# from .models import User, Plan, TimeTable
+from .models import Plan, TimeTable
 
 
 def get_token_auth_header(request):
@@ -41,44 +43,19 @@ def requires_scope(required_scope):
     return require_scope
 
 
-@api_view(['GET'])
+# @permission_classes([AllowAny])
+# class UserViewSet(viewsets.ModelViewSet):
+#     queryset = User.objects.all()
+#     serializer_class = UserSerializer
+
+
 @permission_classes([AllowAny])
-def public(request):
-    return JsonResponse({'message': 'Hello from a public endpoint! You don\'t need to be authenticated to see this.'})
-
-
-@api_view(['GET'])
-def private(request):
-    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated to see this.'})
-
-
-@api_view(['GET'])
-@requires_scope('read:messages')
-def private_scoped(request):
-    return JsonResponse({'message': 'Hello from a private endpoint! You need to be authenticated and have a scope of read:messages to see this.'})
-
-
-class UserAPI(APIView):
-    def get(self, request):
-        queryset = User.objects.all()
-        print(queryset)
-        serializer = UserSerializer(queryset, many=True)
-        return Response(serializer.data)
-
-
-# @api_view(['GET'])
-# def user(request):
-#     return JsonResponse({'message': 'users'})
-
-
-@api_view(['GET'])
-def plan(request):
+class PlanViewSet(viewsets.ModelViewSet):
     queryset = Plan.objects.all()
-    print(queryset)
-    serializer = PlanSerializer(queryset, many=True)
-    return Response(serializer.data)
+    serializer_class = PlanSerializer
 
 
-@api_view(['GET'])
-def time_table(request):
-    return JsonResponse({'message': 'time tables'})
+@permission_classes([AllowAny])
+class TimeTableSet(viewsets.ModelViewSet):
+    queryset = TimeTable.objects.all()
+    serializer_class = TimeTableSerializer

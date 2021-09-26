@@ -1,15 +1,15 @@
 from rest_framework import serializers
-from .models import User, Plan, TimeTable
+# from .models import User, Plan, TimeTable
+from .models import Plan, TimeTable
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = '__all__'
+# class UserSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = User
+#         fields = '__all__'
 
 
 class PlanSerializer(serializers.ModelSerializer):
-    # user = UserSerializer()
 
     class Meta:
         model = Plan
@@ -17,7 +17,6 @@ class PlanSerializer(serializers.ModelSerializer):
 
 
 class TimeTableSerializer(serializers.ModelSerializer):
-    # plan = PlanSerializer()
 
     class Meta:
         model = TimeTable

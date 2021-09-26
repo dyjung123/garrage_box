@@ -10,11 +10,6 @@ https://docs.djangoproject.com/en/3.2/howto/deployment/wsgi/
 import os
 import sys
 
-from dotenv import load_dotenv
-
-project_folder = os.path.expanduser('~/garrage_box/app')
-load_dotenv(os.path.join(project_folder, '.env'))
-
 path = '/home/dongryun/garrage_box/app'
 if path not in sys.path:
     sys.path.append(path)

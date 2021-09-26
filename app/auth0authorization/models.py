@@ -3,8 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.conf import settings
 
 
-class User(AbstractUser):
-    pass
+# class User(AbstractUser):
+#     pass
 
 
 class Plan(models.Model):
@@ -14,7 +14,7 @@ class Plan(models.Model):
         ('C', 'Not Bad'),
         ('D', 'Failed'),
     )
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    # user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     title = models.CharField(max_length=150, blank=False, null=False)
     description = models.TextField(max_length=500, blank=True, null=True)
     evaluation = models.CharField(help_text="Plan achievement evaluation",
