@@ -82,11 +82,12 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = False
+# TODO 나중에 False로 수정
+CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = (
-    'https://garage-box.netlify.app',
-)
+# CORS_ORIGIN_WHITELIST = (
+#     'https://garage-box.netlify.app',
+# )
 
 ROOT_URLCONF = 'time_table.urls'
 

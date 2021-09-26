@@ -7,15 +7,15 @@ from .serializer import UserSerializer, PlanSerializer, TimeTableSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
-  queryset = User.objects.all()
-  serializer_class = UserSerializer
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class PlanViewSet(viewsets.ModelViewSet):
-  queryset = Plan.objects.all()
-  serializer_class = PlanSerializer
+    queryset = Plan.objects.all()
+    serializer_class = PlanSerializer
 
 
 class TimeTableViewSet(viewsets.ModelViewSet):
-  queryset = TimeTable.objects.all()
-  serializer_class = TimeTableSerializer
+    queryset = TimeTable.objects.all()
+    serializer_class = TimeTableSerializer

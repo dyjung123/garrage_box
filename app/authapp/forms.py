@@ -7,5 +7,6 @@ class PostForm(ModelForm):
         model = Post
         fields = ['text']
         widgets = {
-            'text': TextInput(attrs={'class' : 'input', 'placeholder' : 'Say something...'}),
+            'text': TextInput(
+                attrs={'class': 'input', 'placeholder': 'Say something...'}),
         }

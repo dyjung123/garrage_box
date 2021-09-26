@@ -9,10 +9,10 @@ class User(admin.ModelAdmin):
 
 
 @admin.register(Plan)
-class Entry(admin.ModelAdmin):
+class Plan(admin.ModelAdmin):
     pass
 
 
 @admin.register(TimeTable)
-class Entry(admin.ModelAdmin):
+class TimeTable(admin.ModelAdmin):
     pass
