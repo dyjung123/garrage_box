@@ -1,8 +1,7 @@
-from rest_framework import routers
-from .views import UserViewSet, PlanViewSet, TimeTableViewSet
+from rest_framework.routers import DefaultRouter
+from . import views
 
 
-router = routers.DefaultRouter()
-router.register(r'users', UserViewSet)
-router.register(r'plans', PlanViewSet)
-router.register(r'timetables', TimeTableViewSet)
+router = DefaultRouter()
+router.register(r'plans', views.PlanViewSet)
+router.register(r'timetables', views.TimeTableViewSet)

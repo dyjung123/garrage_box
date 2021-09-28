@@ -1,21 +1,17 @@
-from django.shortcuts import render
-import django_filters
-from rest_framework import viewsets, filters
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
-from .models import User, Plan, TimeTable
-from .serializer import UserSerializer, PlanSerializer, TimeTableSerializer
-
-
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+from .models import Plan, TimeTable
+from .serializer import PlanSerializer, TimeTableSerializer
 
 
 class PlanViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = Plan.objects.all()
     serializer_class = PlanSerializer
 
 
 class TimeTableViewSet(viewsets.ModelViewSet):
+    permission_classes = [IsAuthenticated]
     queryset = TimeTable.objects.all()
     serializer_class = TimeTableSerializer
