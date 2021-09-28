@@ -14,7 +14,7 @@ from pathlib import Path
 
 AUTH_USER_MODEL = 'authapp.User'
 
-# Auth0 settings
+# SSO용 Auth0 설정
 SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = os.environ.get("SOCIAL_AUTH_AUTH0_DOMAIN")
 SOCIAL_AUTH_AUTH0_KEY = os.environ.get("SOCIAL_AUTH_AUTH0_KEY")
@@ -24,6 +24,10 @@ SOCIAL_AUTH_AUTH0_SCOPE = [
     'profile',
     'email'
 ]
+
+AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
+AUTH0_ALGORITHMS = ['RS256']
+AUTH0_API_AUDIENCE = os.getenv('AUTH0_API_AUDIENCE')
 
 AUTHENTICATION_BACKENDS = {
     'social_core.backends.auth0.Auth0OAuth2',
@@ -81,6 +85,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'auth0.authentication.Auth0TokenAuthentication',
+    ]
+}
 
 # TODO 나중에 False로 수정
 CORS_ORIGIN_ALLOW_ALL = True

@@ -2,3 +2,5 @@
 .env*
 env
 staticfiles
+token.json
+resp.json
