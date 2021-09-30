@@ -33,7 +33,7 @@ def is_valid_auth0token(token):
                 rsa_key,
                 algorithms=settings.AUTH0_ALGORITHMS,
                 audience=settings.AUTH0_API_AUDIENCE,
-                issuer='https://'+settings.AUTH0_DOMAIN+'/'
+                issuer='https://' + settings.AUTH0_DOMAIN + '/'
             )
             return payload, True
         except jwt.ExpiredSignatureError:

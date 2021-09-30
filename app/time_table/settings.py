@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 import os
 from pathlib import Path
 
-AUTH_USER_MODEL = 'authapp.User'
+# AUTH_USER_MODEL = 'authapp.User'
+# AUTH_USER_MODEL = 'table.User'
 
 # SSO용 Auth0 설정
 SOCIAL_AUTH_TRAILING_SLASH = False  # Remove trailing slash from routes
